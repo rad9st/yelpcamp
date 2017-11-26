@@ -20,7 +20,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 //mongoose.connect("mongodb://localhost/yelp_camp_v14", {useMongoClient: true});
-mongoose.connect("mongodb://radek:Kutasek1@ds042687.mlab.com:42687/yelpcamp", {useMongoClient: true});
+mongoose.connect(process.env.DATABASEURL, {useMongoClient: true});
+//mongodb://radek:Kutasek1@ds042687.mlab.com:42687/yelpcamp
 app.set("view engine", "ejs");
 app.use(flash());
 //seedDB();
